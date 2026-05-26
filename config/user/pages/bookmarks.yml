@@ -1,0 +1,77 @@
+# 自动生成的书签配置文件
+# 若要更新，请将新的书签HTML文件放入bookmarks/目录
+# 此文件使用模块化配置格式，位于config/user/pages/目录下
+
+title: 我的书签
+subtitle: 从浏览器导入的书签收藏
+template: bookmarks
+categories:
+  - name: 免费域名
+    icon: fas fa-folder
+    path:
+      - 免费域名
+    sites:
+      - name: 我的免费域名管理 - DNSHE.COM
+        url: https://my.dnshe.com/index.php?m=domain_hub
+        icon: fas fa-link
+        description: ''
+      - name: 优选IP订阅生成器
+        url: https://cloudflaresub.mubai1017.workers.dev/
+        icon: fas fa-link
+        description: ''
+      - name: What Is My IP Address - See Your Public Address - IPv4 & IPv6
+        url: https://whatismyipaddress.com/
+        icon: fas fa-link
+        description: ''
+      - name: edgetunnel 设置页面 - 管理后台
+        url: https://ptuer.ccwu.cc/ADMIN
+        icon: fas fa-link
+        description: ''
+      - name: Dashboard
+        url: https://ctrl.lunes.host/
+        icon: fas fa-link
+        description: ''
+      - name: 客户区域 - L53
+        url: https://customer.l53.net/
+        icon: fas fa-link
+        description: ''
+      - name: Temp Mail - 免费Edu / .COM临时邮件
+        url: https://etempmail.com/zh
+        icon: fas fa-link
+        description: ''
+      - name: NASDAQ Composite (^IXIC) Latest Stock News & Headlines - Yahoo Finance
+        url: https://finance.yahoo.com/quote/%5EIXIC/news/
+        icon: fas fa-link
+        description: ''
+      - name: Databricks
+        url: https://dbc-f304de1b-14e9.cloud.databricks.com/apps/argoapp?o=7474649926600199
+        icon: fas fa-link
+        description: ''
+      - name: NetAssist::IPv6 Tunnel Broker
+        url: https://tb.netassist.ua/index.php
+        icon: fas fa-link
+        description: ''
+      - name: 订阅中心
+        url: https://cfnew.ptuer.dpdns.org/55319170-5e94-4cfe-a3a1-29a9616b8d62
+        icon: fas fa-link
+        description: ''
+      - name: Hurricane Electric Free IPv6 Tunnel Broker
+        url: https://tunnelbroker.net/
+        icon: fas fa-link
+        description: ''
+      - name: 'ClouDNS: Dashboard'
+        url: https://www.cloudns.net/main/
+        icon: fas fa-link
+        description: ''
+      - name: Stackryze Free Domains | Indevs
+        url: https://domain.stackryze.com/domains/69fdffa306c29b8d0d75a8eb
+        icon: fas fa-link
+        description: ''
+      - name: Proxy List
+        url: https://dashboard.webshare.io/13405786/proxy/list?authenticationMethod=%22username_password%22&connectionMethod=%22direct%22&proxyControl=%220%22&rowsPerPage=10&page=0&order=%22asc%22&orderBy=null&searchValue=%22%22&removeType=%22refresh_all%22
+        icon: fas fa-link
+        description: ''
+      - name: 美国地址生成器 - 美国身份生成器 - 美国信用卡生成器
+        url: https://www.meiguodizhi.com/
+        icon: fas fa-link
+        description: ''
