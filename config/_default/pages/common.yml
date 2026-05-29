@@ -76,42 +76,42 @@ categories:
         url: https://excalidraw.com
         icon: fas fa-pencil-alt
         description: 手绘风格图表工具
-      - name: edgetunnel
-        url: https://ptuer.ccwu.cc/admin
-        icon: fas fa-pencil-alt
-        description: edgetunnel
-      - name: Check Socks5
-        url: https://checkss5.ptuer.dpdns.org
-        icon: fas fa-pencil-alt
-        description: Check Socks5
-      - name: cfnew
-        url: https://cfnew.ptuer.dpdns.org
-        icon: fas fa-pencil-alt
-        description: cfnew
-      - name: mail
-        url: https://mail.ptuer.ccwu.cc
-        icon: fas fa-pencil-alt
-        description: mail
-      - name: velss
-        url: https://velss1.ptuer.dpdns.org
-        icon: fas fa-pencil-alt
-        description: velss
-      - name: text2img
-        url: https://text2img.ptuer.dpdns.org
-        icon: fas fa-pencil-alt
-        description: text2img
-      - name: wasmer-anti-proxy
-        url: https://wasmer-anti-proxy.ptuer.dpdns.org/sub
-        icon: fas fa-pencil-alt
-        description: wasmer-anti-proxy
-      - name: 优选IP订阅生成器
-        url: https://cloudflaresub.ptuer.dpdns.org
-        icon: fas fa-pencil-alt
-        description: 优选IP订阅生成器    
-      - name: wasmer
-        url: https://wasmer.ptuer.dpdns.org/sub
-        icon: fas fa-pencil-alt
-        description: wasmer
+      - name: "edgetunnel"
+        url: "https://ptuer.ccwu.cc/admin"
+        icon: "fas fa-pencil-alt"
+        description: "edgetunnel"
+      - name: "Check Socks5"
+        url: "https://checkss5.ptuer.dpdns.org"
+        icon: "fas fa-pencil-alt"
+        description: "Check Socks5"
+      - name: "cfnew"
+        url: "https://cfnew.ptuer.dpdns.org"
+        icon: "fas fa-pencil-alt"
+        description: "cfnew"
+      - name: "mail"
+        url: "https://mail.ptuer.ccwu.cc"
+        icon: "fas fa-pencil-alt"
+        description: "mail"
+      - name: "velss"
+        url: "https://velss1.ptuer.dpdns.org"
+        icon: "fas fa-pencil-alt"
+        description: "velss"
+      - name: "text2img"
+        url: "https://text2img.ptuer.dpdns.org"
+        icon: "fas fa-pencil-alt"
+        description: "text2img"
+      - name: "wasmer-anti-proxy"
+        url: "https://wasmer-anti-proxy.ptuer.dpdns.org/sub"
+        icon: "fas fa-pencil-alt"
+        description: "wasmer-anti-proxy"
+      - name: "优选IP订阅生成器"
+        url: "https://cloudflaresub.ptuer.dpdns.org"
+        icon: "fas fa-pencil-alt"
+        description: "优选IP订阅生成器"
+      - name: "wasmer"
+        url: "https://wasmer.ptuer.dpdns.org/sub"
+        icon: "fas fa-pencil-alt"
+        description: "wasmer"
   - name: 学习资源
     icon: fas fa-graduation-cap
     sites:
