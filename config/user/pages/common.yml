@@ -56,17 +56,21 @@ categories:
         url: https://text-space.ptuer.dpdns.org/admin
         icon: fas fa-play-circle
         description: 工具
-     - name: 图床
+      - name: 图床
         url: https://images.ptuer.dpdns.org
         icon: fas fa-play-circle
-        description: 工具
-     - name: JSON Editor
+        description: 图床
+      - name: 私人笔记
+        url: https://private-notes.ptuer.dpdns.org
+        icon: fas fa-browser
+        description: 私人笔记
+      - name: JSON Editor
         url: https://jsoneditoronline.org
         icon: fas fa-code-branch
         description: JSON在线编辑器
-    - name: 指纹浏览器
+      - name: 指纹浏览器
         url: https://www.browserscan.net/zh
-        icon: fas fa-code-branch
+        icon: fas fa-browser
         description: 指纹浏览器
       - name: Can I Use
         url: https://caniuse.com
