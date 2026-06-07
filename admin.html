@@ -1,0 +1,123 @@
+const OWNER = 'testonly2014';
+const REPO = 'nav';
+const FILE_PATH = 'config/user/pages/common.yml';
+
+let fileSha = ''; // 提交更新时必须带上旧文件的 SHA
+let yamlConfig = null; // 存储解析后的 JS 对象
+
+// 1. 从 GitHub 读取文件内容
+async function loadYamlData() {
+    const token = document.getElementById('gh-token').value;
+    if(!token) return alert('请输入 Token！');
+
+    const url = `https://github.com/{OWNER}/${REPO}//tree/main/${FILE_PATH}`;
+    
+    try {
+        const res = await fetch(url, {
+            headers: { 'Authorization': `token ${token}` }
+        });
+        if(!res.ok) throw new Error('Token 无效或无仓库权限');
+        
+        const data = await res.json();
+        fileSha = data.sha; // 保存文件的 SHA 标志
+        
+        // GitHub 返回的内容是 Base64 编码的，需要解码
+        const yamlText = decodeURIComponent(atob(data.content).split('').map(c => {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        // 将 YAML 转为 JS 对象
+        yamlConfig = jsyaml.load(yamlText);
+        
+        // 显示管理界面并渲染数据
+        document.getElementById('auth-section').style.display = 'none';
+        document.getElementById('manager-section').style.display = 'block';
+        renderLinks();
+        
+    } catch (err) {
+        alert('加载失败: ' + err.message);
+    }
+}
+
+// 2. 渲染网址列表到表格中 (假设 yml 内部结构是 links: [ {title, url}, ... ])
+function renderLinks() {
+    const tbody = document.getElementById('links-list');
+    tbody.innerHTML = '';
+    
+    // 注意：这里需要根据你 common.yml 的实际数据嵌套结构来调整遍历方式
+    const links = yamlConfig.links || []; 
+    
+    links.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${item.title}</td>
+            <td><a href="${item.url}" target="_blank">${item.url}</a></td>
+            <td><button onclick="deleteLink(${index})" style="color:red;">删除</button></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// 3. 前端添加网址
+function addLink() {
+    const title = document.getElementById('new-title').value.trim();
+    const url = document.getElementById('new-url').value.trim();
+    const desc = document.getElementById('new-desc').value.trim();
+    
+    if(!title || !url) return alert('名称和网址不能为空！');
+    
+    if(!yamlConfig.links) yamlConfig.links = [];
+    yamlConfig.links.push({ title, url, desc });
+    
+    // 清空输入框并重刷列表
+    document.getElementById('new-title').value = '';
+    document.getElementById('new-url').value = '';
+    document.getElementById('new-desc').value = '';
+    renderLinks();
+}
+
+// 4. 前端删除网址
+function deleteLink(index) {
+    if(confirm('确定要删除这个网址吗？')) {
+        yamlConfig.links.splice(index, 1);
+        renderLinks();
+    }
+}
+
+// 5. 将修改后的数据保存并推送回 GitHub
+async function saveAndPush() {
+    const token = document.getElementById('gh-token').value;
+    const url = `https://github.com{OWNER}/${REPO}/contents/${FILE_PATH}`;
+    
+    // 1. 将 JS 对象重新转回标准的 YAML 文本
+    const newYamlText = jsyaml.dump(yamlConfig);
+    // 2. 转为 UTF-8 的 Base64 编码
+    const base64Content = btoa(unescape(encodeURIComponent(newYamlText)));
+    
+    const bodyData = {
+        message: "style(nav): 由导航站管理员在线更新网址内容",
+        content: base64Content,
+        sha: fileSha // 必须传入旧的 SHA 才能通过版本校验
+    };
+    
+    try {
+        const res = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyData)
+        });
+        
+        if(res.ok) {
+            const resData = await res.json();
+            fileSha = resData.content.sha; // 更新本地缓存的最新 SHA 标志
+            alert('同步成功！GitHub Actions 正在重新编译部署，大约 1 分钟后生效。');
+        } else {
+            throw new Error('提交失败，请确认权限。');
+        }
+    } catch (err) {
+        alert('同步失败: ' + err.message);
+    }
+}
